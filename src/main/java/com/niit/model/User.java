@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -18,7 +19,10 @@ public class User {
 	
 	@Column(unique=true,nullable=false)
 	private String username;
-	@NotEmpty
+	
+	@NotEmpty(message = "Please enter your password.")
+	@Size(min = 6, max = 15, message = "Your password must contain at least one number and one uppercase and lower case letter and atleast 8 or more characters ")
+
 	private String password;
 	private boolean enabled;
 	@OneToOne(mappedBy="user")

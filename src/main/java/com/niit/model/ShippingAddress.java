@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -26,6 +27,7 @@ public class ShippingAddress {
 	@NotEmpty(message="This Feild is required")
 	private String country;
 	@NotEmpty(message="This Feild is required")
+	@Size(min = 6, max =6)
 	private String zipcode;
 	 
 	
